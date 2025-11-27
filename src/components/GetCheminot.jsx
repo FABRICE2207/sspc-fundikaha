@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import {api} from "../../api/axios";
-import { Sidebar } from "./sidebar";
+import { Sidebar } from "./Sidebar";
 
 export const GetCheminot = () => {
   const { id } = useParams();
@@ -31,7 +31,7 @@ export const GetCheminot = () => {
     e.preventDefault();
 
     try {
-      await axios.put(`http://localhost:8000/cheminots/${id}`, cheminot);
+      await api.put(`/cheminots/${id}`, cheminot);
       alert("Cheminot mis à jour avec succès !");
     } catch (error) {
       console.error("Erreur lors de la mise à jour :", error);

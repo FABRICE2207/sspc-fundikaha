@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Sidebar } from "./sidebar";
+
 import {apiToken} from "../../api/axios";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Sidebar } from "./Sidebar";
 
 export const Dashboard = () => {
   const [open, setOpen] = useState(false);
@@ -20,7 +21,6 @@ export const Dashboard = () => {
       {/* Sidebar */}
       <Sidebar />
 
-    
 
       {/* Main Content */}
       <div className="flex-1 md:ml-64 p-4 min-h-screen bg-gray-100">

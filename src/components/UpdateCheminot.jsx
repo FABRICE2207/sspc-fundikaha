@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import {api} from "../../api/axios";
-import { Sidebar } from "./sidebar";
+import { Sidebar } from "./Sidebar";
 
 export const UpdateCheminot = () => {
   const { id } = useParams();

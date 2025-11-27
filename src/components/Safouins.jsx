@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Home, Users, BarChart2, Settings, LogOut, Menu } from "lucide-react";
 import { Link } from "react-router-dom";
 import { api } from "../../api/axios";
-import { Sidebar } from "./sidebar";
+import { Sidebar } from "./Sidebar";
+
 
 const MenuItem = ({ icon, label, to }) => (
   <Link

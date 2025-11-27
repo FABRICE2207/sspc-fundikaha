@@ -49,7 +49,11 @@ export default function AddCheminot() {
       {
         ceremonie_one: { nom: "ACCUEIL", Date: "", Lieu: "" },
         etape_one: { nom: "", mois: "", date_debut: "", date_fin: "" },
-        etape_two: { nom: "", mois: "", date_debut: "", date_fin: "",
+        etape_two: {
+          nom: "",
+          mois: "",
+          date_debut: "",
+          date_fin: "",
           ceremonie_two: { nom_two: "", Date_two: "", Lieu_two: "" },
           ceremonie_three: { nom_three: "", Date_three: "", Lieu_three: "" },
         },
@@ -79,107 +83,138 @@ export default function AddCheminot() {
     ],
   });
 
-//   const handleChange = (e, section = null) => {
-//   const { name, value } = e.target;
+  //   const handleChange = (e, section = null) => {
+  //   const { name, value } = e.target;
 
-//   // Mise à jour des sections (phases/étapes/cérémonies)
-//   if (section) {
-//     setForm(prev => ({
-//       ...prev,
-//       data: prev.data.map((item, idx) => {
-//         if (idx === 0) {
-//           return {
-//             ...item,
-//             [section]: {
-//               ...item[section],
-//               [name]: value
-//             }
-//           };
-//         }
-//         return item;
-//       })
-//     }));
-//     return;
-//   }
+  //   // Mise à jour des sections (phases/étapes/cérémonies)
+  //   if (section) {
+  //     setForm(prev => ({
+  //       ...prev,
+  //       data: prev.data.map((item, idx) => {
+  //         if (idx === 0) {
+  //           return {
+  //             ...item,
+  //             [section]: {
+  //               ...item[section],
+  //               [name]: value
+  //             }
+  //           };
+  //         }
+  //         return item;
+  //       })
+  //     }));
+  //     return;
+  //   }
 
-//   // Date de montée automatique
-//   if (name === "date_naissance") {
-//     let dateMonteeFormatted = "";
-//     if (value) {
-//       const birthDate = new Date(value);
-//       const date18 = new Date(birthDate);
-//       date18.setFullYear(date18.getFullYear() + 18);
+  //   // Date de montée automatique
+  //   if (name === "date_naissance") {
+  //     let dateMonteeFormatted = "";
+  //     if (value) {
+  //       const birthDate = new Date(value);
+  //       const date18 = new Date(birthDate);
+  //       date18.setFullYear(date18.getFullYear() + 18);
 
-//       const day = String(date18.getDate()).padStart(2, "0");
-//       const month = String(date18.getMonth() + 1).padStart(2, "0");
-//       const year = date18.getFullYear();
+  //       const day = String(date18.getDate()).padStart(2, "0");
+  //       const month = String(date18.getMonth() + 1).padStart(2, "0");
+  //       const year = date18.getFullYear();
 
-//       dateMonteeFormatted = `${year}/${month}/${day}`; // JJ/MM/AAAA
-//     }
+  //       dateMonteeFormatted = `${year}/${month}/${day}`; // JJ/MM/AAAA
+  //     }
 
-//     setForm(prev => ({
-//       ...prev,
-//       date_naissance: value,
-//       date_monte: dateMonteeFormatted
-//     }));
-//     return;
-//   }
+  //     setForm(prev => ({
+  //       ...prev,
+  //       date_naissance: value,
+  //       date_monte: dateMonteeFormatted
+  //     }));
+  //     return;
+  //   }
 
-//   // Autres champs généraux
-//   setForm(prev => ({
-//     ...prev,
-//     [name]: value
-//   }));
-// };
+  //   // Autres champs généraux
+  //   setForm(prev => ({
+  //     ...prev,
+  //     [name]: value
+  //   }));
+  // };
 
-const handleChange = (e, section = null, subSection = null) => {
-  const { name, value } = e.target;
+  const handleChange = (e, section = null, subSection = null) => {
+    const { name, value } = e.target;
 
-  if (section && subSection) {
-    setForm(prev => ({
-      ...prev,
-      data: prev.data.map((item, idx) => {
-        if (idx === 0) {
-          return {
-            ...item,
-            [section]: {
-              ...item[section],
-              [subSection]: {
-                ...item[section][subSection],
-                [name]: value
-              }
-            }
-          };
-        }
-        return item;
-      })
-    }));
-    return;
-  }
+    if (section && subSection) {
+      setForm((prev) => ({
+        ...prev,
+        data: prev.data.map((item, idx) => {
+          if (idx === 0) {
+            return {
+              ...item,
+              [section]: {
+                ...item[section],
+                [subSection]: {
+                  ...item[section][subSection],
+                  [name]: value,
+                },
+              },
+            };
+          }
+          return item;
+        }),
+      }));
+      return;
+    }
 
-  if (section) {
-    setForm(prev => ({
-      ...prev,
-      data: prev.data.map((item, idx) => {
-        if (idx === 0) {
-          return {
-            ...item,
-            [section]: {
-              ...item[section],
-              [name]: value
-            }
-          };
-        }
-        return item;
-      })
-    }));
-    return;
-  }
+    if (section) {
+      setForm((prev) => ({
+        ...prev,
+        data: prev.data.map((item, idx) => {
+          if (idx === 0) {
+            return {
+              ...item,
+              [section]: {
+                ...item[section],
+                [name]: value,
+              },
+            };
+          }
+          return item;
+        }),
+      }));
+      return;
+    }
 
-  // Champs généraux
-  setForm(prev => ({ ...prev, [name]: value }));
-};
+    // Date de montée automatique
 
+    if (name === "date_naissance") {
+      let dateMonteeFormatted = "";
+
+      if (value) {
+        const birthDate = new Date(value);
+
+        const date18 = new Date(birthDate);
+
+        date18.setFullYear(date18.getFullYear() + 18);
+
+        const day = String(date18.getDate()).padStart(2, "0");
+
+        const month = String(date18.getMonth() + 1).padStart(2, "0");
+
+        const year = date18.getFullYear();
+
+        dateMonteeFormatted = `${year}/${month}/${day}`; // JJ/MM/AAAA
+      }
+
+      setForm((prev) => ({
+        ...prev,
+
+        date_naissance: value,
+
+        date_monte: dateMonteeFormatted,
+      }));
+
+      return;
+    }
+
+    // Champs généraux
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -203,34 +238,34 @@ const handleChange = (e, section = null, subSection = null) => {
 
       data: [
         {
-          ceremonie_one : {
+          ceremonie_one: {
             nom: form.data[0].ceremonie_one.nom,
             Date: form.data[0].ceremonie_one.Date,
-            Lieu: form.data[0].ceremonie_one.Lieu
+            Lieu: form.data[0].ceremonie_one.Lieu,
           },
-          etape_one:  {
+          etape_one: {
             nom: form.data[0].etape_one.nom,
             mois: form.data[0].etape_one.mois,
             date_debut: form.data[0].etape_one.date_debut,
-            date_fin: form.data[0].etape_one.date_fin
+            date_fin: form.data[0].etape_one.date_fin,
           },
           etape_two: {
             nom: form.data[0].etape_two.nom,
             mois: form.data[0].etape_two.mois,
             date_debut: form.data[0].etape_two.date_debut,
             date_fin: form.data[0].etape_two.date_fin,
-            ceremonie_two:  {
+            ceremonie_two: {
               nom_two: form.data[0].etape_two.ceremonie_two.nom_two,
               Date_two: form.data[0].etape_two.ceremonie_two.Date_two,
-              Lieu_two: form.data[0].etape_two.ceremonie_two.Lieu_two
+              Lieu_two: form.data[0].etape_two.ceremonie_two.Lieu_two,
             },
-            ceremonie_three:  {
+            ceremonie_three: {
               nom_three: form.data[0].etape_two.ceremonie_three.nom_three,
               Date_three: form.data[0].etape_two.ceremonie_three.Date_three,
-              Lieu_three: form.data[0].etape_two.ceremonie_three.Lieu_three
+              Lieu_three: form.data[0].etape_two.ceremonie_three.Lieu_three,
             },
           },
-          
+
           // ceremonie_three: {
           //  nom: form.data[0].ceremonie_three.nom,
           //   Date: form.data[0].ceremonie_three.Date,
@@ -304,63 +339,82 @@ const handleChange = (e, section = null, subSection = null) => {
             <h3 className="font-bold mb-4">Informations générales</h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-  {[ "nom", "prenoms", "matricule", "numero", "village", "district", "generation" ].map((field) => (
-    <input
-      key={field}
-      name={field}
-      placeholder={field.toUpperCase()}
-      value={form[field] || ""}
-      onChange={handleChange}
-      className="border p-2 rounded w-full"
-    />
-  ))}
+              {[
+                "nom",
+                "prenoms",
+                "matricule",
+                "numero",
+                "village",
+                "district",
+                "generation",
+              ].map((field) => (
+                <input
+                  key={field}
+                  name={field}
+                  placeholder={field.toUpperCase()}
+                  value={form[field] || ""}
+                  onChange={handleChange}
+                  className="border p-2 rounded w-full"
+                />
+              ))}
 
-  <select
-    name="paroisse"
-    value={form.paroisse}
-    onChange={handleChange}
-    className="border p-2 rounded w-full"
-  >
-    <option>Sélectionner une paroisse</option>
-    <option value="STA">Saint andreas kaggwa de yopougon andokoi</option>
-    <option value="SB">Saint bathémemy de la cité du banco</option>
-    <option value="SE">Sainte elisabeth de yopougon ananeraie</option>
-    <option value="SFA">Saint François d’Assise de Yopougon Zone Industrielle.</option>
-    <option value="SJM">Saint Jacques le Majeur d’Allokoi PK23</option>
-    <option value="SJB">Saint Jean-Baptiste de la Cité Mamie Adjoua</option>
-    <option value="STJA">Sainte Thérèse de Jésus d’Avila (cité ppa ex maca)</option>
-  </select>
+              <select
+                name="paroisse"
+                value={form.paroisse}
+                onChange={handleChange}
+                className="border p-2 rounded w-full"
+              >
+                <option>Sélectionner une paroisse</option>
+                <option value="STA">
+                  Saint andreas kaggwa de yopougon andokoi
+                </option>
+                <option value="SB">Saint bathémemy de la cité du banco</option>
+                <option value="SE">
+                  Sainte elisabeth de yopougon ananeraie
+                </option>
+                <option value="SFA">
+                  Saint François d’Assise de Yopougon Zone Industrielle.
+                </option>
+                <option value="SJM">
+                  Saint Jacques le Majeur d’Allokoi PK23
+                </option>
+                <option value="SJB">
+                  Saint Jean-Baptiste de la Cité Mamie Adjoua
+                </option>
+                <option value="STJA">
+                  Sainte Thérèse de Jésus d’Avila (cité ppa ex maca)
+                </option>
+              </select>
 
-  <select
-    name="sexe"
-    value={form.sexe}
-    onChange={handleChange}
-    className="border p-2 rounded w-full"
-  >
-    <option value="">Sexe</option>
-    <option value="M">Masculin</option>
-    <option value="F">Féminin</option>
-  </select>
+              <select
+                name="sexe"
+                value={form.sexe}
+                onChange={handleChange}
+                className="border p-2 rounded w-full"
+              >
+                <option value="">Sexe</option>
+                <option value="M">Masculin</option>
+                <option value="F">Féminin</option>
+              </select>
 
-  <input
-    type="date"
-    name="date_naissance"
-    value={form.date_naissance || ""}
-    onChange={handleChange}
-    className="border p-2 rounded w-full"
-  />
+              <input
+                type="date"
+                name="date_naissance"
+                value={form.date_naissance || ""}
+                onChange={handleChange}
+                className="border p-2 rounded w-full"
+              />
 
-  <input
-    type="text"
-    name="date_monte"
-    value={form.date_monte || ""}
-    readOnly
-    className="border p-2 rounded w-full bg-gray-100"
-  />
+              <input
+                type="text"
+                name="date_monte"
+                value={form.date_monte || ""}
+                readOnly
+                className="border p-2 rounded w-full bg-gray-100"
+              />
 
-  <input type="hidden" name="users_id" value={user || ""} />
-</div>
-
+              <input type="hidden" name="users_id" value={user || ""} />
+            </div>
           </div>
         )}
 
@@ -370,7 +424,7 @@ const handleChange = (e, section = null, subSection = null) => {
             <h3 className="font-bold mb-4">Cérémonies</h3>
 
             <div className="border p-3 rounded mb-3">
-              <input              
+              <input
                 name="nom"
                 value={form.data[0].ceremonie_one.nom}
                 placeholder="ACCUEIL"
@@ -401,121 +455,124 @@ const handleChange = (e, section = null, subSection = null) => {
           <div className="animate-slide">
             <h3 className="font-bold mb-4">Étapes</h3>
 
-              {/* DJONI */}
-              <div  className="border p-3 rounded mb-3">
-                <input
-                  name="nom"
-                  value={form.data[0].etape_one.nom}
-                  placeholder="DJONI"
-                  onChange={e => handleChange(e, "etape_one")}
-                  className="border p-2 rounded w-full mb-2"
-                />
-                <input
-                  name="mois"
-                  type="text"
-                  value={form.data[0].etape_one.mois}
-                  maxLength={1}
-                  placeholder="Durée (1 mois)"
-                  onChange={e => handleChange(e, "etape_one")}
-                  className="border p-2 rounded w-full mb-2"
-                />
-                <input
-                  type="date"
-                  name="date_debut"
-                  value={form.data[0].etape_one.date_debut}
-                  onChange={e => handleChange(e, "etape_one")}
-                  className="border p-2 rounded w-full mb-2"
-                />
-                <input
-                 type="date"
-                  name="date_fin"
-                  value={form.data[0].etape_one.date_fin}
-                  onChange={e => handleChange(e, "etape_one")}
-                  className="border p-2 rounded w-full mb-2"
-                />
-              </div>
+            {/* DJONI */}
+            <div className="border p-3 rounded mb-3">
+              <input
+                name="nom"
+                value={form.data[0].etape_one.nom}
+                placeholder="DJONI"
+                onChange={(e) => handleChange(e, "etape_one")}
+                className="border p-2 rounded w-full mb-2"
+              />
+              <input
+                name="mois"
+                type="text"
+                value={form.data[0].etape_one.mois}
+                maxLength={1}
+                placeholder="Durée (1 mois)"
+                onChange={(e) => handleChange(e, "etape_one")}
+                className="border p-2 rounded w-full mb-2"
+              />
+              <input
+                type="date"
+                name="date_debut"
+                value={form.data[0].etape_one.date_debut}
+                onChange={(e) => handleChange(e, "etape_one")}
+                className="border p-2 rounded w-full mb-2"
+              />
+              <input
+                type="date"
+                name="date_fin"
+                value={form.data[0].etape_one.date_fin}
+                onChange={(e) => handleChange(e, "etape_one")}
+                className="border p-2 rounded w-full mb-2"
+              />
+            </div>
 
-              {/* TAMNI */}
-              <div  className="border p-3 rounded mb-3">
-                <input
-                  name="nom"
-                  value={form.data[0].etape_two.nom}
-                  placeholder="TAMANI"
-                  onChange={e => handleChange(e, "etape_two")}
-                  className="border p-2 rounded w-full mb-2"
-                />
-                <input
-                  name="mois"
-                  type="text"
-                  value={form.data[0].etape_two.mois}
-                  maxLength={1}
-                  placeholder="Durée (3 mois)"
-                  onChange={e => handleChange(e, "etape_two")}
-                  className="border p-2 rounded w-full mb-2"
-                />
-                <input
-                  type="date"
-                  name="date_debut"
-                  value={form.data[0].etape_two.date_debut}
-                  onChange={e => handleChange(e, "etape_two")}
-                  className="border p-2 rounded w-full mb-2"
-                />
-                <input
-                 type="date"
-                  name="date_fin"
-                  value={form.data[0].etape_two.date_fin}
-                  onChange={e => handleChange(e, "etape_two")}
-                  className="border p-2 rounded w-full mb-2"
-                />
-                <h3 className="font-bold mb-4">Cérémonies</h3>
-                {/* BOIS SACRE */}
-                <input
-                  name="nom_two"
-                  value={form.data[0].etape_two.ceremonie_two.nom_two}
-                  placeholder="BOIS SACRÉ"
-                  onChange={e => handleChange(e, "etape_two", "ceremonie_two")}
-                  className="border p-2 rounded w-full mb-2"
-                />
-                <input
-                 type="date"
-                  name="Date_two"
-                  value={form.data[0].etape_two.ceremonie_two.Date_two}
-                  onChange={e => handleChange(e, "etape_two", "ceremonie_two")}
-                  className="border p-2 rounded w-full mb-2"
-                />
-                <input
-                  name="Lieu_two"
-                  placeholder="Lieu"
-                  value={form.data[0].etape_two.ceremonie_two.Lieu_two}
-                  onChange={e => handleChange(e, "etape_two", "ceremonie_two")}
-                  className="border p-2 rounded w-full mb-2"
-                />
-                {/* FAKWÉ */}
-                <input
-                  name="nom_three"
-                  value={form.data[0].etape_two.ceremonie_two.nom_three}
-                  placeholder="FAKWÉ"
-                  onChange={e => handleChange(e, "etape_two", "ceremonie_three")}
-                  className="border p-2 rounded w-full mb-2"
-                />
-                <input
-                 type="date"
-                  name="Date_three"
-                  value={form.data[0].etape_two.ceremonie_two.Date_three}
-                  onChange={e => handleChange(e, "etape_two", "ceremonie_three")}
-                  className="border p-2 rounded w-full mb-2"
-                />
-                <input
-                  name="Lieu_three"
-                  placeholder="Lieu"
-                  value={form.data[0].etape_two.ceremonie_two.Lieu_three}
-                  onChange={e => handleChange(e, "etape_two", "ceremonie_three")}
-                  className="border p-2 rounded w-full mb-2"
-                />
-              </div>
-              
-          
-            
+            {/* TAMNI */}
+            <div className="border p-3 rounded mb-3">
+              <input
+                name="nom"
+                value={form.data[0].etape_two.nom}
+                placeholder="TAMANI"
+                onChange={(e) => handleChange(e, "etape_two")}
+                className="border p-2 rounded w-full mb-2"
+              />
+              <input
+                name="mois"
+                type="text"
+                value={form.data[0].etape_two.mois}
+                maxLength={1}
+                placeholder="Durée (3 mois)"
+                onChange={(e) => handleChange(e, "etape_two")}
+                className="border p-2 rounded w-full mb-2"
+              />
+              <input
+                type="date"
+                name="date_debut"
+                value={form.data[0].etape_two.date_debut}
+                onChange={(e) => handleChange(e, "etape_two")}
+                className="border p-2 rounded w-full mb-2"
+              />
+              <input
+                type="date"
+                name="date_fin"
+                value={form.data[0].etape_two.date_fin}
+                onChange={(e) => handleChange(e, "etape_two")}
+                className="border p-2 rounded w-full mb-2"
+              />
+              <h3 className="font-bold mb-4">Cérémonies</h3>
+              {/* BOIS SACRE */}
+              <input
+                name="nom_two"
+                value={form.data[0].etape_two.ceremonie_two.nom_two}
+                placeholder="BOIS SACRÉ"
+                onChange={(e) => handleChange(e, "etape_two", "ceremonie_two")}
+                className="border p-2 rounded w-full mb-2"
+              />
+              <input
+                type="date"
+                name="Date_two"
+                value={form.data[0].etape_two.ceremonie_two.Date_two}
+                onChange={(e) => handleChange(e, "etape_two", "ceremonie_two")}
+                className="border p-2 rounded w-full mb-2"
+              />
+              <input
+                name="Lieu_two"
+                placeholder="Lieu"
+                value={form.data[0].etape_two.ceremonie_two.Lieu_two}
+                onChange={(e) => handleChange(e, "etape_two", "ceremonie_two")}
+                className="border p-2 rounded w-full mb-2"
+              />
+              {/* FAKWÉ */}
+              <input
+                name="nom_three"
+                value={form.data[0].etape_two.ceremonie_two.nom_three}
+                placeholder="FAKWÉ"
+                onChange={(e) =>
+                  handleChange(e, "etape_two", "ceremonie_three")
+                }
+                className="border p-2 rounded w-full mb-2"
+              />
+              <input
+                type="date"
+                name="Date_three"
+                value={form.data[0].etape_two.ceremonie_two.Date_three}
+                onChange={(e) =>
+                  handleChange(e, "etape_two", "ceremonie_three")
+                }
+                className="border p-2 rounded w-full mb-2"
+              />
+              <input
+                name="Lieu_three"
+                placeholder="Lieu"
+                value={form.data[0].etape_two.ceremonie_two.Lieu_three}
+                onChange={(e) =>
+                  handleChange(e, "etape_two", "ceremonie_three")
+                }
+                className="border p-2 rounded w-full mb-2"
+              />
+            </div>
           </div>
         )}
 
@@ -539,7 +596,7 @@ const handleChange = (e, section = null, subSection = null) => {
                   name="mission"
                   value={form.data?.[0]?.phase_one?.mission || ""}
                   placeholder="Mission"
-                   onChange={(e) => handleChange(e, "phase_one")}
+                  onChange={(e) => handleChange(e, "phase_one")}
                   className="border p-2 rounded w-full mb-2"
                 />
                 <input

@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 import axios from "axios";
-import { Sidebar } from "./sidebar";
+import { Sidebar } from "./Sidebar";
 import {api} from "../../api/axios";
 import { useNavigate } from "react-router-dom";
 import AddCheminot from "./AddCheminot";

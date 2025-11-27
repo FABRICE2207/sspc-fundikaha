@@ -1,9 +1,10 @@
 
 import React, { useState } from "react";
 import axios from "axios";
-import { Sidebar } from "./sidebar";
+
 import {api} from "../../api/axios";
 import { useNavigate } from "react-router-dom";
+import { Sidebar } from "./Sidebar";
 
 export const RegisterSaf = () => {
   const [formData, setFormData] = useState({

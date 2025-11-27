@@ -8,7 +8,7 @@ import { ListeCheminots } from './components/ListeCheminots';
 import { RegisterChem } from './components/RegisterChem';
 import { ListeCheminotSaf } from './components/ListeCheminotSaf';
 import { UpdateCheminot } from './components/UpdateCheminot';
-import { GetCheminot } from './components/Getcheminot';
+import { CheminotGet } from './components/CheminotGet';
 
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
           <Route path="/liste_safouins" element={<Safouins />} />
           <Route path="/liste_cheminots" element={<ListeCheminots />} />
           <Route path="/liste_cheminots_saf" element={<ListeCheminotSaf />} />
-          <Route path="/informations_cheminots/:id" element={<GetCheminot />} />
+          <Route path="/informations_cheminots/:id" element={<CheminotGet/>} />
           <Route path="/update_cheminot/:id" element={<UpdateCheminot />} />
           {/* <Route path="/users" element={<Users />} />
           <Route path="/users/create" element={<CreateUser />} />

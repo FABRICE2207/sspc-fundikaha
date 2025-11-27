@@ -4,7 +4,7 @@ import axios from "axios";
 import {api} from "../../api/axios";
 import { Sidebar } from "./Sidebar";
 
-export const GetCheminot = () => {
+export const CheminotGet = () => {
   const { id } = useParams();
   const [cheminot, setCheminot] = useState(null);
   const [loading, setLoading] = useState(false);

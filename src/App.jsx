@@ -8,7 +8,7 @@ import { ListeCheminots } from './components/ListeCheminots';
 import { RegisterChem } from './components/RegisterChem';
 import { ListeCheminotSaf } from './components/ListeCheminotSaf';
 import { UpdateCheminot } from './components/UpdateCheminot';
-import { GetCheminot } from './components/Getcheminot';
+import { GetCheminot } from './components/GetCheminot';
 
 
 function App() {

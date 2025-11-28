@@ -362,6 +362,7 @@ export default function AddCheminot() {
             periode_yhenon_date_fin:
               form.data[0]?.phase_three?.periode_yhenon_date_fin,
             brevetage: form.data[0]?.phase_three?.brevetage,
+            ceremonie: form.data[0]?.phase_three?.ceremonie,
             date_ceremonie: form.data[0]?.phase_three?.date_ceremonie,
             lieu_ceremonie: form.data[0]?.phase_three?.lieu_ceremonie
           },
@@ -1493,7 +1494,7 @@ export default function AddCheminot() {
                     <div className="mt-2">
                     <input
                       placeholder="Lieu"
-                      name="lieu"
+                      name="lieu_ceremonie"
                       type="text"
                       value={form.data?.[0]?.phase_three?.lieu_ceremonie || ""}
                       onChange={(e) => handleChange(e, "phase_three")}

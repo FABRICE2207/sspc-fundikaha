@@ -47,12 +47,14 @@ export const UpdateCheminot = () => {
               mois: "",
               date_debut: "",
               date_fin: "",
+              statut: "",
             },
             etape_two: d.etape_two || {
               nom: "",
               mois: "",
               date_debut: "",
               date_fin: "",
+              statut: "",
               ceremonie_two: { nom_two: "", Date_two: "", Lieu_two: "" },
               ceremonie_three: {
                 nom_three: "",
@@ -60,33 +62,73 @@ export const UpdateCheminot = () => {
                 Lieu_three: "",
               },
             },
-            etape_three: d.etape_three || {
-              nom: "",
-              mois: "",
-              date_debut: "",
-              date_fin: "",
-            },
 
-            phase_one: d.phase_one || {
-              domaine: "",
-              mission: "",
-              certification: "",
-              brevetage: "",
-            },
-            phase_two: d.phase_two || {
-              domaine: "",
-              mission: "",
-              certification: "",
-              brevetage: "",
-            },
-            phase_three: d.phase_three || {
-              domaine: "",
-              mission: "",
-              certification: "",
-              brevetage: "",
-              ceremonie_date: "",
-              ceremonie_lieu: "",
-            },
+                    phase_one: d.phase_one || {
+          nom: "",
+          etape_suyan: "",
+          mois_one: "",
+          actions_one: "",
+          mois_three: "",
+          actions_three: "",
+          periode_one_date_debut: "",
+          periode_one_date_fin: "",
+          periode_three_date_debut: "",
+          periode_three_date_fin: "",
+          domaine: "",
+          mission: "",
+          certification: "",
+          etape_yhenon: "",
+          mois_yhenon: "",
+          actions_yhenon: "",
+          periode__date_debut: "",
+          periode__date_fin: "",
+          brevetage: "",
+        },
+        phase_two: d.phase_two || {
+          nom: "",
+          etape_suyan: "",
+          mois_one: "",
+          actions_one: "",
+          mois_three: "",
+          actions_three: "",
+          periode_one_date_debut: "",
+          periode_one_date_fin: "",
+          periode_three_date_debut: "",
+          periode_three_date_fin: "",
+          domaine: "",
+          mission: "",
+          certification: "",
+          etape_yhenon: "",
+          mois_yhenon: "",
+          actions_yhenon: "",
+          periode__date_debut: "",
+          periode__date_fin: "",
+          brevetage: "",
+        },
+        phase_three: d.phase_three || {
+          nom: "",
+          etape_suyan: "",
+          mois_one: "",
+          actions_one: "",
+          mois_three: "",
+          actions_three: "",
+          periode_one_date_debut: "",
+          periode_one_date_fin: "",
+          periode_three_date_debut: "",
+          periode_three_date_fin: "",
+          domaine: "",
+          mission: "",
+          certification: "",
+          etape_yhenon: "",
+          mois_: "",
+          actions_: "",
+          periode__date_debut: "",
+          periode__date_fin: "",
+          brevetage: "",
+          ceremonie: "",
+          date_ceremonie: "",
+          lieu_ceremonie: "",
+        }
           })) || [
             // Si chem.data est vide, on fournit une valeur par défaut
             {
@@ -104,28 +146,74 @@ export const UpdateCheminot = () => {
                   Lieu_three: "",
                 },
               },
-              etape_three: { nom: "", mois: "", date_debut: "", date_fin: "" },
+                         phase_one: {
+          nom: "",
+          etape_suyan: "",
+          mois_one: "",
+          actions_one: "",
+          mois_three: "",
+          actions_three: "",
+          periode_one_date_debut: "",
+          periode_one_date_fin: "",
+          periode_three_date_debut: "",
+          periode_three_date_fin: "",
+          domaine: "",
+          mission: "",
+          certification: "",
+          etape_yhenon: "",
+          mois_: "",
+          actions_: "",
+          periode__date_debut: "",
+          periode__date_fin: "",
+          brevetage: "",
+        },
+        phase_two:  {
+          nom: "",
+          etape_suyan: "",
+          mois_one: "",
+          actions_one: "",
+          mois_three: "",
+          actions_three: "",
+          periode_one_date_debut: "",
+          periode_one_date_fin: "",
+          periode_three_date_debut: "",
+          periode_three_date_fin: "",
+          domaine: "",
+          mission: "",
+          certification: "",
+          etape_yhenon: "",
+          mois_: "",
+          actions_: "",
+          periode__date_debut: "",
+          periode__date_fin: "",
+          brevetage: "",
+        },
+        phase_three:  {
+          nom: "",
+          etape_suyan: "",
+          mois_one: "",
+          actions_one: "",
+          mois_three: "",
+          actions_three: "",
+          periode_one_date_debut: "",
+          periode_one_date_fin: "",
+          periode_three_date_debut: "",
+          periode_three_date_fin: "",
+          domaine: "",
+          mission: "",
+          certification: "",
+          etape_yhenon: "",
+          mois_yhenon: "",
+          actions_yhenon: "",
+          periode__date_debut: "",
+          periode__date_fin: "",
+          brevetage: "",
+          ceremonie: "",
+          date_ceremonie: "",
+          lieu_ceremonie: "",
+        }
 
-              phase_one: {
-                domaine: "",
-                mission: "",
-                certification: "",
-                brevetage: "",
-              },
-              phase_two: {
-                domaine: "",
-                mission: "",
-                certification: "",
-                brevetage: "",
-              },
-              phase_three: {
-                domaine: "",
-                mission: "",
-                certification: "",
-                brevetage: "",
-                ceremonie_date: "",
-                ceremonie_lieu: "",
-              },
+              
             },
           ],
         });
@@ -167,31 +255,88 @@ export const UpdateCheminot = () => {
           ceremonie_two: { nom_two: "", Date_two: "", Lieu_two: "" },
           ceremonie_three: { nom_three: "", Date_three: "", Lieu_three: "" },
         },
-        etape_three: { nom: "", mois: "", date_debut: "", date_fin: "" },
-
         phase_one: {
+          nom: "",
+          etape_suyan: "",
+          mois_one: "",
+          actions_one: "",
+          mois_three: "",
+          actions_three: "",
+          periode_one_date_debut: "",
+          periode_one_date_fin: "",
+          periode_three_date_debut: "",
+          periode_three_date_fin: "",
           domaine: "",
           mission: "",
           certification: "",
+          etape_yhenon: "",
+          mois_yhenon: "",
+          actions_yhenon: "",
+          periode__date_debut: "",
+          periode__date_fin: "",
           brevetage: "",
         },
-        phase_two: {
+        phase_two:  {
+          nom: "",
+          etape_suyan: "",
+          mois_one: "",
+          actions_one: "",
+          mois_three: "",
+          actions_three: "",
+          periode_one_date_debut: "",
+          periode_one_date_fin: "",
+          periode_three_date_debut: "",
+          periode_three_date_fin: "",
           domaine: "",
           mission: "",
           certification: "",
+          etape_yhenon: "",
+          mois_yhenon: "",
+          actions_: "",
+          periode__date_debut: "",
+          periode__date_fin: "",
           brevetage: "",
         },
-        phase_three: {
+        phase_three:  {
+          nom: "",
+          etape_suyan: "",
+          mois_one: "",
+          actions_one: "",
+          mois_three: "",
+          actions_three: "",
+          periode_one_date_debut: "",
+          periode_one_date_fin: "",
+          periode_three_date_debut: "",
+          periode_three_date_fin: "",
           domaine: "",
           mission: "",
           certification: "",
+          etape_yhenon: "",
+          mois_yhenon: "",
+          actions_yhenon: "",
+          periode__date_debut: "",
+          periode__date_fin: "",
           brevetage: "",
-          ceremonie_date: "",
-          ceremonie_lieu: "",
-        },
+          ceremonie: "",
+          date_ceremonie: "",
+          lieu_ceremonie: "",
+        }
       },
     ],
   });
+
+    // const estTermine = dateDebut && dateFin; -- étape djonie
+  const estTermine = Boolean(
+    form.data?.[0]?.etape_one?.date_debut && form.data?.[0]?.etape_one?.date_fin
+  );
+  const statut = estTermine ? "TERMINÉ" : "EN COURS";
+
+  // const estTermine = dateDebut && dateFin; -- étape tamani
+  const estTermineTamani = Boolean(
+    form.data?.[0]?.etape_two?.ceremonie_two?.Date_two &&
+      form.data?.[0]?.etape_two?.ceremonie_three?.Date_three
+  );
+  const statutTamani = estTermineTamani ? "TERMINÉ" : "EN COURS";
 
   useEffect(() => {
     const fetchCheminot = async () => {
@@ -337,44 +482,88 @@ export const UpdateCheminot = () => {
             },
           },
 
-          // ceremonie_three: {
-          //  nom: form.data[0].ceremonie_three.nom,
-          //   Date: form.data[0].ceremonie_three.Date,
-          //   Lieu: form.data[0].ceremonie_three.Lieu
-          // },
-
           phase_one: {
-            nom: "PHASE 1",
-            planning: [
-              { domaine: form.data[0]?.phase_one?.domaine || "" },
-              { mission: form.data[0]?.phase_one?.mission || "" },
-              { certification: form.data[0]?.phase_one?.certification || "" },
-              { brevetage: form.data[0]?.phase_one?.brevetage || "" },
-            ],
+            nom: form.data[0].phase_one.nom,
+            etape_suyan: form.data[0].phase_one.etape_suyan,
+            mois_one: form.data[0].phase_one.mois_one,
+            actions_one: form.data[0].phase_one.actions_one,
+            mois_three: form.data[0].phase_one.mois_three,
+            actions_three: form.data[0].phase_one.actions_three,
+            periode_one_date_debut:
+              form.data[0].phase_one.periode_one_date_debut,
+            periode_one_date_fin: form.data[0].phase_one.periode_one_date_fin,
+            periode_three_date_debut:
+              form.data[0].phase_one.periode_three_date_debut,
+            periode_three_date_fin:
+              form.data[0].phase_one.periode_three_date_fin,
+            domaine: form.data[0].phase_one.domaine,
+            mission: form.data[0].phase_one.mission,
+            certification: form.data[0].phase_one.certification,
+            etape_yhenon: form.data[0].phase_one.etape_yhenon,
+            mois_yhenon: form.data[0].phase_one.mois_yhenon,
+            actions_yhenon: form.data[0].phase_one.actions_yhenon,
+            periode_yhenon_date_debut:
+              form.data[0].phase_one.periode_yhenon_date_debut,
+            periode_yhenon_date_fin:
+              form.data[0].phase_one.periode_yhenon_date_fin,
+            brevetage: form.data[0].phase_one.brevetage,
           },
           phase_two: {
-            nom: "PHASE 2",
-            planning: [
-              { domaine: form.data[0]?.phase_two?.domaine || "" },
-              { mission: form.data[0]?.phase_two?.mission || "" },
-              { certification: form.data[0]?.phase_two?.certification || "" },
-              { brevetage: form.data[0]?.phase_two?.brevetage || "" },
-            ],
+            nom: form.data[0].phase_two.nom,
+            etape_suyan: form.data[0].phase_two.etape_suyan,
+            mois_one: form.data[0].phase_two.mois_one,
+            actions_one: form.data[0].phase_two.actions_one,
+            mois_three: form.data[0].phase_two.mois_three,
+            actions_three: form.data[0].phase_two.actions_three,
+            periode_one_date_debut:
+              form.data[0].phase_two.periode_one_date_debut,
+            periode_one_date_fin: form.data[0].phase_two.periode_one_date_fin,
+            periode_three_date_debut:
+              form.data[0].phase_two.periode_three_date_debut,
+            periode_three_date_fin:
+              form.data[0].phase_two.periode_three_date_fin,
+            domaine: form.data[0].phase_two.domaine,
+            mission: form.data[0].phase_two.mission,
+            certification: form.data[0].phase_two.certification,
+            etape_yhenon: form.data[0].phase_two.etape_yhenon,
+            mois_yhenon: form.data[0].phase_two.mois_yhenon,
+            actions_yhenon: form.data[0].phase_two.actions_yhenon,
+            periode_yhenon_date_debut:
+              form.data[0].phase_two.periode_yhenon_date_debut,
+            periode_yhenon_date_fin:
+              form.data[0].phase_two.periode_yhenon_date_fin,
+            brevetage: form.data[0].phase_two.brevetage,
           },
           phase_three: {
-            nom: "PHASE 3",
-            planning: [
-              { domaine: form.data[0]?.phase_three?.domaine || "" },
-              { mission: form.data[0]?.phase_three?.mission || "" },
-              { certification: form.data[0]?.phase_three?.certification || "" },
-              { brevetage: form.data[0]?.phase_three?.brevetage || "" },
-              {
-                ceremonie: "",
-                date: form.data[0]?.phase_three?.ceremonie_date || "",
-                lieu: form.data[0]?.phase_three?.ceremonie_lieu || "",
-              },
-            ],
+            nom: form.data[0].phase_three.nom,
+            etape_suyan: form.data[0].phase_three.etape_suyan,
+            mois_one: form.data[0].phase_three.mois_one,
+            actions_one: form.data[0].phase_three.actions_one,
+            mois_three: form.data[0].phase_three.mois_three,
+            actions_three: form.data[0].phase_three.actions_three,
+            periode_one_date_debut:
+              form.data[0].phase_three.periode_one_date_debut,
+            periode_one_date_fin: form.data[0].phase_three.periode_one_date_fin,
+            periode_three_date_debut:
+              form.data[0].phase_three.periode_three_date_debut,
+            periode_three_date_fin:
+              form.data[0].phase_three.periode_three_date_fin,
+            domaine: form.data[0].phase_three.domaine,
+            mission: form.data[0].phase_three.mission,
+            certification: form.data[0].phase_three.certification,
+            etape_yhenon: form.data[0].phase_three.etape_yhenon,
+            mois_yhenon: form.data[0].phase_three.mois_yhenon,
+            actions_yhenon: form.data[0].phase_three.actions_yhenon,
+            periode_yhenon_date_debut:
+              form.data[0].phase_three.periode_yhenon_date_debut,
+            periode_yhenon_date_fin:
+              form.data[0].phase_three.periode_yhenon_date_fin,
+            brevetage: form.data[0].phase_three.brevetage,
+            ceremonie: form.data[0].phase_three.ceremonie,
+            date_ceremonie: form.data[0].phase_three.date_ceremonie,
+            lieu_ceremonie: form.data[0].phase_three.lieu_ceremonie
           },
+          
         },
       ],
     };
@@ -539,128 +728,135 @@ export const UpdateCheminot = () => {
               </div>
             )}
 
-            {/* ===== ETAPE 3 ===== */}
-            {step === 3 && (
-              <div className="animate-slide">
-                <h3 className="font-bold mb-4">Étapes</h3>
+                    {/* ===== ETAPE 3 ===== */}
+        {step === 3 && (
+          <div className="animate-slide">
+            <h3 className="font-bold mb-4">Étapes</h3>
 
-                {/* DJONI */}
-                <div className="border p-3 rounded mb-3">
-                  <input
-                    name="nom"
-                    value={form.data?.[0]?.etape_one?.nom || ""}
-                    placeholder="DJONI"
-                    onChange={(e) => handleChange(e, "etape_one", null, 0)}
-                    className="border p-2 rounded w-full mb-2"
-                  />
-                  <input
-                    name="mois"
-                    value={form.data?.[0]?.etape_one?.mois || ""}
-                    placeholder="1 mois"
-                    maxLength={1}
-                    onChange={(e) => handleChange(e, "etape_one", null, 0)}
-                    className="border p-2 rounded w-full mb-2"
-                  />
-                  <input
-                    name="date_debut"
-                    type="date"
-                    value={form.data?.[0]?.etape_one?.date_debut || ""}
-                    onChange={(e) => handleChange(e, "etape_one", null, 0)}
-                    className="border p-2 rounded w-full mb-2"
-                  />
-                  <input
-                    name="date_fin"
-                    type="date"
-                    value={form.data?.[0]?.etape_one?.date_fin || ""}
-                    onChange={(e) => handleChange(e, "etape_one", null, 0)}
-                    className="border p-2 rounded w-full mb-2"
-                  />
-                </div>
+            {/* DJONI */}
+            <div className="border p-3 rounded mb-3">
+              <input
+                name="nom"
+                value={form.data[0].etape_one.nom}
+                placeholder="DJONI"
+                disabled
+                onChange={(e) => handleChange(e, "etape_one")}
+                className="border p-2 mb-3 rounded w-full  bg-gray-200"
+              />
+              <input
+                name="mois"
+                type="text"
+                disabled
+                value={form.data[0].etape_one.mois}
+                placeholder="Durée (1 mois)"
+                onChange={(e) => handleChange(e, "etape_one")}
+                className="border p-2 mb-3 rounded w-full  bg-gray-200"
+              />
+              <input
+                type="date"
+                name="date_debut"
+                value={form.data[0].etape_one.date_debut}
+                onChange={(e) => handleChange(e, "etape_one")}
+                className="border p-2 mb-3 rounded w-full "
+              />
+              <input
+                type="date"
+                name="date_fin"
+                value={form.data[0].etape_one.date_fin}
+                onChange={(e) => handleChange(e, "etape_one")}
+                className="border p-2 mb-3 rounded w-full "
+              />
+              {/* Bouton en cours-terminé djoni */}
+              <button
+                disabled={!estTermine}
+                className={`px-4 py-2 rounded w-full 
+                  ${
+                    estTermine
+                      ? "bg-green-600 cursor-not-allowed text-white"
+                      : "bg-yellow-400 cursor-not-allowed text-black"
+                  }
+                `}
+              >
+                {estTermine ? "TERMINÉ" : "EN COURS"}
+              </button>
+            </div>
 
-                {/* TAMANI */}
-                <div className="border p-3 rounded mb-3">
-                  <input
-                    name="nom"
-                    value={form.data?.[0]?.etape_two?.nom || ""}
-                    placeholder="TAMANI"
-                    onChange={(e) => handleChange(e, "etape_two", null, 0)}
-                    className="border p-2 rounded w-full mb-2"
-                  />
-                  <input
-                    name="mois"
-                    value={form.data?.[0]?.etape_two?.mois || ""}
-                    placeholder="Duréé (3 mois)"
-                    maxLength={1}
-                    onChange={(e) => handleChange(e, "etape_two", null, 0)}
-                    className="border p-2 rounded w-full mb-2"
-                  />
-                  <input
-                    name="date_debut"
-                    value={form.data?.[0]?.etape_two?.date_debut || ""}
-                    type="date"
-                    onChange={(e) => handleChange(e, "etape_two", null, 0)}
-                    className="border p-2 rounded w-full mb-2"
-                  />
-                  <input
-                    name="date_fin"
-                    value={form.data?.[0]?.etape_two?.date_fin || ""}
-                    type="date"
-                    onChange={(e) => handleChange(e, "etape_two", null, 0)}
-                    className="border p-2 rounded w-full mb-2"
-                  />
-
-                  {/* Cérémonies TAMANI */}
-                  <h3 className="font-bold mb-4">Cérémonies</h3>
-                  <input
-                    name="nom_two"
-                    value={
-                      form.data?.[0]?.etape_two?.ceremonie_two.nom_two || ""
-                    }
-                    placeholder="BOIS SACRE"
-                    onChange={(e) =>
-                      handleChange(e, "etape_two", "ceremonie_two")
-                    }
-                    className="border p-2 rounded w-full mb-2"
-                  />
-                  <input
-                    name="Date_two"
-                    value={
-                      form.data?.[0]?.etape_two?.ceremonie_two.Date_two || ""
-                    }
-                    type="date"
-                    onChange={(e) =>
-                      handleChange(e, "etape_two", "ceremonie_two")
-                    }
-                    className="border p-2 rounded w-full mb-2"
-                  />
-                  <input
-                    name="Lieu_two"
-                    value={
-                      form.data?.[0]?.etape_two?.ceremonie_two.Lieu_two || ""
-                    }
-                    placeholder="Lieu"
-                    onChange={(e) =>
-                      handleChange(e, "etape_two", "ceremonie_two")
-                    }
-                    className="border p-2 rounded w-full mb-2"
-                  />
-                  <input
+            {/* TAMNI */}
+            <div className="border p-3 rounded mb-3">
+              <input
+                name="nom"
+                value={form.data[0].etape_two.nom}
+                placeholder="TAMANI"
+                disabled
+                onChange={(e) => handleChange(e, "etape_two")}
+                className="border p-2 mb-3 rounded w-full  bg-gray-200"
+              />
+              <input
+                name="mois"
+                type="text"
+                value={form.data[0].etape_two.mois}
+                disabled
+                placeholder="Durée (3 mois)"
+                onChange={(e) => handleChange(e, "etape_two")}
+                className="border p-2 mb-3 rounded w-full  bg-gray-200"
+              />
+              <input
+                type="date"
+                name="date_debut"
+                value={form.data[0].etape_two.date_debut}
+                onChange={(e) => handleChange(e, "etape_two")}
+                className="border p-2 mb-3 rounded w-full "
+              />
+              <input
+                type="date"
+                name="date_fin"
+                value={form.data[0].etape_two.date_fin}
+                onChange={(e) => handleChange(e, "etape_two")}
+                className="border p-2 mb-3 rounded w-full "
+              />
+              <h3 className="font-bold mb-4">Cérémonies</h3>
+              {/* BOIS SACRE */}
+              <input
+                name="nom_two"
+                value={form.data[0].etape_two.ceremonie_two.nom_two}
+                placeholder="BOIS SACRÉ"
+                disabled
+                onChange={(e) => handleChange(e, "etape_two", "ceremonie_two")}
+                className="border p-2 mb-3 rounded w-full  bg-gray-200"
+              />
+              <input
+                type="date"
+                name="Date_two"
+                value={form.data[0].etape_two.ceremonie_two.Date_two}
+                onChange={(e) => handleChange(e, "etape_two", "ceremonie_two")}
+                className="border p-2 mb-3 rounded w-full "
+              />
+              <input
+                name="Lieu_two"
+                placeholder="Lieu"
+                value={form.data[0].etape_two.ceremonie_two.Lieu_two}
+                onChange={(e) => handleChange(e, "etape_two", "ceremonie_two")}
+                className="border p-2 mb-3 rounded w-full "
+              />
+              {/* FAKWÉ */}
+              <input
                 name="nom_three"
                 value={form.data[0].etape_two.ceremonie_three.nom_three}
                 placeholder="FAKWÉ"
+                disabled
                 onChange={(e) =>
                   handleChange(e, "etape_two", "ceremonie_three")
                 }
-                className="border p-2 rounded w-full mb-2"
+                className="border p-2 mb-3 rounded w-full  bg-gray-200"
               />
-                  <input
+              <input
                 type="date"
                 name="Date_three"
                 value={form.data[0].etape_two.ceremonie_three.Date_three}
                 onChange={(e) =>
                   handleChange(e, "etape_two", "ceremonie_three")
                 }
-                className="border p-2 rounded w-full mb-2"
+                className="border p-2 mb-3 rounded w-full "
               />
               <input
                 name="Lieu_three"
@@ -669,35 +865,852 @@ export const UpdateCheminot = () => {
                 onChange={(e) =>
                   handleChange(e, "etape_two", "ceremonie_three")
                 }
-                className="border p-2 rounded w-full mb-2"
+                className="border p-2 mb-3 rounded w-full "
               />
+
+              {/* Bouton en cours-terminé djoni */}
+              <button
+                disabled={!estTermineTamani}
+                className={`px-4 py-2 rounded w-full 
+                  ${
+                    estTermineTamani
+                      ? "bg-green-600 cursor-not-allowed text-white"
+                      : "bg-yellow-400 cursor-not-allowed text-black"
+                  }
+                `}
+              >
+                {estTermineTamani ? "TERMINÉ" : "EN COURS"}
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* ===== ETAPE 4 ===== */}
+        {step === 4 && (
+          <div className="animate-slide">
+            <h3 className="font-bold mb-4">Les phases</h3>
+            <div className="border p-3 rounded mb-3">
+              <h4 className="font-semibold uppercase ">
+                {form.data[0]?.phase_one?.nom}
+              </h4>
+
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
+                <div className="border rounded">
+                  <div className="grid grid-cols-1">
+                    <div className="bg-orange-500 font-semibold text-center">
+                      ETAPE
+                    </div>
+                    <div className="p-10 flex justify-center items-center">
+                      {form.data[0]?.phase_one?.etape_suyan}
+                    </div>
+                  </div>
+                </div>
+                <div className="border rounded">
+                  <div className="grid grid-cols-1 text-center">
+                    <div className="bg-orange-500 font-semibold">MOIS</div>
+                    <div className="p-2">
+                      <div className="grid grid-cols-1 text-center gap-1">
+                        <div className="border rounded p-2">
+                          {form.data[0]?.phase_one?.mois_one}
+                        </div>
+                        <div className="border rounded p-2">
+                          {form.data[0]?.phase_one?.mois_three}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="border rounded">
+                  <div className="grid grid-cols-1 text-center">
+                    <div className="bg-orange-500 font-semibold">ACTIONS</div>
+                    <div className="p-2">
+                      <div className="grid grid-cols-1 text-center gap-1">
+                        <div className="border rounded p-2">
+                          {form.data[0]?.phase_one?.actions_one}
+                        </div>
+                        <div className="border rounded p-2">
+                          {form.data[0]?.phase_one?.actions_three}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="border rounded">
+                  <div className="grid grid-cols-1 text-center">
+                    <div className="bg-orange-500 font-semibold">PERIODE</div>
+                    <div className="ml-2 mr-2 mt-2 mb-1">
+                      <div className="grid grid-cols-2 gap-1 w-full">
+                        <div className="border rounded p-2">
+                          <input
+                            name="periode_one_date_debut"
+                            type="date"
+                            value={
+                              form.data?.[0]?.phase_one
+                                ?.periode_one_date_debut || ""
+                            }
+                            onChange={(e) => handleChange(e, "phase_one")}
+                            className="w-full "
+                          />
+                        </div>
+
+                        <div className="border rounded p-2">
+                          <input
+                            name="periode_one_date_fin"
+                            type="date"
+                            value={
+                              form.data?.[0]?.phase_one?.periode_one_date_fin ||
+                              ""
+                            }
+                            onChange={(e) => handleChange(e, "phase_one")}
+                            className="w-full"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="ml-2 mr-2 mb-2">
+                      <div className="grid grid-cols-2 gap-1 w-full">
+                        <div className="border rounded p-2">
+                          <input
+                            name="periode_three_date_debut"
+                            type="date"
+                            value={
+                              form.data?.[0]?.phase_one
+                                ?.periode_three_date_debut || ""
+                            }
+                            onChange={(e) => handleChange(e, "phase_one")}
+                            className="w-full "
+                          />
+                        </div>
+
+                        <div className="border rounded p-2">
+                          <input
+                            name="periode_three_date_fin"
+                            type="date"
+                            value={
+                              form.data?.[0]?.phase_one
+                                ?.periode_three_date_fin || ""
+                            }
+                            onChange={(e) => handleChange(e, "phase_one")}
+                            className="w-full"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            )}
+            </div>
 
-            {/* ===== ETAPE 4 ===== */}
-            {step === 4 && (
-              <div className="animate-slide">
-                <h3 className="font-bold mb-4">Phases</h3>
-
-                {["phase_one", "phase_two", "phase_three"].map((phase) => (
-                  <div key={phase} className="border p-3 rounded mb-3">
-                    <h4 className="font-semibold uppercase mb-2">{phase}</h4>
-
-                    {Object.keys(form.data?.[0]?.[phase] || {}).map((field) => (
-                      <input
-                        key={field}
-                        name={field}
-                        value={form.data?.[0]?.[phase]?.[field] || ""}
-                        placeholder={field.toUpperCase()}
-                        onChange={(e) => handleChange(e, phase, null, 0)}
-                        className="border p-2 rounded w-full mb-2"
-                      />
-                    ))}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+              <div className="">
+                <div className="grid grid-cols-1">
+                  <div className="bg-orange-500 font-semibold text-center">
+                    DOMAINE
                   </div>
-                ))}
+                  <div className="mt-2">
+                    <input
+                      placeholder="Domaine"
+                      name="domaine"
+                      type="text"
+                      value={form.data?.[0]?.phase_one?.domaine || ""}
+                      onChange={(e) => handleChange(e, "phase_one")}
+                      className="border p-2 mb-3 rounded w-full"
+                    />
+                  </div>
+                </div>
               </div>
-            )}
+              <div className="rounded">
+                <div className="grid grid-cols-1 text-center">
+                  <div className="bg-orange-500 font-semibold">MISSION</div>
+                  <div className="mt-2">
+                    <input
+                      placeholder="Mission"
+                      name="mission"
+                      type="text"
+                      value={form.data?.[0]?.phase_one?.mission || ""}
+                      onChange={(e) => handleChange(e, "phase_one")}
+                      className="border p-2 mb-3 rounded w-full"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="">
+                <div className="grid grid-cols-1 text-center">
+                  <div className="bg-orange-500 font-semibold">
+                    CERTIFICATION
+                  </div>
+                  <div className="mt-2">
+                    <input
+                      placeholder="Certification"
+                      name="certification"
+                      type="text"
+                      value={form.data?.[0]?.phase_one?.certification || ""}
+                      onChange={(e) => handleChange(e, "phase_one")}
+                      className="border p-2 mb-3 rounded w-full"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-2">
+                <div>
+                  <div className="grid grid-cols-1">
+                    <div className="bg-orange-500 font-semibold text-center">
+                      ETAPE
+                    </div>
+                    <div className="p-2 mt-2 flex border rounded justify-center items-center">
+                      {form.data[0]?.phase_one?.etape_yhenon}
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div className="grid grid-cols-1 text-center">
+                    <div className="bg-orange-500 font-semibold">MOIS</div>
+                    <div className="mt-2">
+                      <div className="grid grid-cols-1 text-center gap-1">
+                        <div className="border rounded p-2">
+                          {form.data[0]?.phase_one?.mois_yhenon}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div className="grid grid-cols-1 text-center">
+                    <div className="bg-orange-500 font-semibold">ACTIONS</div>
+                    <div className="mt-2">
+                      <div className="grid grid-cols-1 text-center gap-1">
+                        <div className="border rounded p-2">
+                          {form.data[0]?.phase_one?.actions_yhenon}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div className="grid grid-cols-1 text-center">
+                    <div className="bg-orange-500 font-semibold">PERIODE</div>
+                    <div className="mt-2">
+                      <div className="grid grid-cols-2 gap-1 w-full">
+                        <div className="border rounded p-2">
+                          <input
+                            name="periode_yhenon_date_debut"
+                            type="date"
+                            value={
+                              form.data?.[0]?.phase_one
+                                ?.periode_yhenon_date_debut || ""
+                            }
+                            onChange={(e) => handleChange(e, "phase_one")}
+                            className="w-full "
+                          />
+                        </div>
+
+                        <div className="border rounded p-2">
+                          <input
+                            name="periode_yhenon_date_fin"
+                            type="date"
+                            value={
+                              form.data?.[0]?.phase_one?.periode_yhenon_date_fin ||
+                              ""
+                            }
+                            onChange={(e) => handleChange(e, "phase_one")}
+                            className="w-full"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+
+                <div>
+                  <div className="grid grid-cols-1 text-center">
+                    <div className="bg-orange-500 font-semibold">BREVETAGE</div>
+                    <div className="mt-2">
+                    <input
+                      placeholder="Brevetage"
+                      name="brevetage"
+                      type="text"
+                      value={form.data?.[0]?.phase_one?.brevetage || ""}
+                      onChange={(e) => handleChange(e, "phase_one")}
+                      className="border p-2 mb-3 rounded w-full"
+                    />
+                  </div>
+                    
+                  </div>
+                </div>
+                
+                
+              </div>
+          </div>
+        )}
+
+         {/* ===== ETAPE 5 ===== */}
+         {step === 5 && (
+          <div className="animate-slide">
+            <h3 className="font-bold mb-4">Les phases</h3>
+            <div className="border p-3 rounded mb-3">
+              <h4 className="font-semibold uppercase ">
+                {form.data[0]?.phase_two?.nom}
+              </h4>
+
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
+                <div className="border rounded">
+                  <div className="grid grid-cols-1">
+                    <div className="bg-orange-500 font-semibold text-center">
+                      ETAPE
+                    </div>
+                    <div className="p-10 flex justify-center items-center">
+                      {form.data[0]?.phase_two?.etape_suyan}
+                    </div>
+                  </div>
+                </div>
+                <div className="border rounded">
+                  <div className="grid grid-cols-1 text-center">
+                    <div className="bg-orange-500 font-semibold">MOIS</div>
+                    <div className="p-2">
+                      <div className="grid grid-cols-1 text-center gap-1">
+                        <div className="border rounded p-2">
+                          {form.data[0]?.phase_two?.mois_one}
+                        </div>
+                        <div className="border rounded p-2">
+                          {form.data[0]?.phase_two?.mois_three}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="border rounded">
+                  <div className="grid grid-cols-1 text-center">
+                    <div className="bg-orange-500 font-semibold">ACTIONS</div>
+                    <div className="p-2">
+                      <div className="grid grid-cols-1 text-center gap-1">
+                        <div className="border rounded p-2">
+                          {form.data[0]?.phase_two?.actions_one}
+                        </div>
+                        <div className="border rounded p-2">
+                          {form.data[0]?.phase_two?.actions_three}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="border rounded">
+                  <div className="grid grid-cols-1 text-center">
+                    <div className="bg-orange-500 font-semibold">PERIODE</div>
+                    <div className="ml-2 mr-2 mt-2 mb-1">
+                      <div className="grid grid-cols-2 gap-1 w-full">
+                        <div className="border rounded p-2">
+                          <input
+                            name="periode_one_date_debut"
+                            type="date"
+                            value={
+                              form.data?.[0]?.phase_two
+                                ?.periode_one_date_debut || ""
+                            }
+                            onChange={(e) => handleChange(e, "phase_two")}
+                            className="w-full "
+                          />
+                        </div>
+
+                        <div className="border rounded p-2">
+                          <input
+                            name="periode_one_date_fin"
+                            type="date"
+                            value={
+                              form.data?.[0]?.phase_two?.periode_one_date_fin ||
+                              ""
+                            }
+                            onChange={(e) => handleChange(e, "phase_two")}
+                            className="w-full"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="ml-2 mr-2 mb-2">
+                      <div className="grid grid-cols-2 gap-1 w-full">
+                        <div className="border rounded p-2">
+                          <input
+                            name="periode_three_date_debut"
+                            type="date"
+                            value={
+                              form.data?.[0]?.phase_two
+                                ?.periode_three_date_debut || ""
+                            }
+                            onChange={(e) => handleChange(e, "phase_two")}
+                            className="w-full "
+                          />
+                        </div>
+
+                        <div className="border rounded p-2">
+                          <input
+                            name="periode_three_date_fin"
+                            type="date"
+                            value={
+                              form.data?.[0]?.phase_two
+                                ?.periode_three_date_fin || ""
+                            }
+                            onChange={(e) => handleChange(e, "phase_two")}
+                            className="w-full"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+              <div className="">
+                <div className="grid grid-cols-1">
+                  <div className="bg-orange-500 font-semibold text-center">
+                    DOMAINE
+                  </div>
+                  <div className="mt-2">
+                    <input
+                      placeholder="Domaine"
+                      name="domaine"
+                      type="text"
+                      value={form.data?.[0]?.phase_two?.domaine || ""}
+                      onChange={(e) => handleChange(e, "phase_two")}
+                      className="border p-2 mb-3 rounded w-full"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="rounded">
+                <div className="grid grid-cols-1 text-center">
+                  <div className="bg-orange-500 font-semibold">MISSION</div>
+                  <div className="mt-2">
+                    <input
+                      placeholder="Mission"
+                      name="mission"
+                      type="text"
+                      value={form.data?.[0]?.phase_two?.mission || ""}
+                      onChange={(e) => handleChange(e, "phase_two")}
+                      className="border p-2 mb-3 rounded w-full"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="">
+                <div className="grid grid-cols-1 text-center">
+                  <div className="bg-orange-500 font-semibold">
+                    CERTIFICATION
+                  </div>
+                  <div className="mt-2">
+                    <input
+                      placeholder="Certification"
+                      name="certification"
+                      type="text"
+                      value={form.data?.[0]?.phase_two?.certification || ""}
+                      onChange={(e) => handleChange(e, "phase_two")}
+                      className="border p-2 mb-3 rounded w-full"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-2">
+                <div>
+                  <div className="grid grid-cols-1">
+                    <div className="bg-orange-500 font-semibold text-center">
+                      ETAPE
+                    </div>
+                    <div className="p-2 mt-2 flex border rounded justify-center items-center">
+                      {form.data[0]?.phase_two?.etape_yhenon}
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div className="grid grid-cols-1 text-center">
+                    <div className="bg-orange-500 font-semibold">MOIS</div>
+                    <div className="mt-2">
+                      <div className="grid grid-cols-1 text-center gap-1">
+                        <div className="border rounded p-2">
+                          {form.data[0]?.phase_two?.mois_yhenon}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div className="grid grid-cols-1 text-center">
+                    <div className="bg-orange-500 font-semibold">ACTIONS</div>
+                    <div className="mt-2">
+                      <div className="grid grid-cols-1 text-center gap-1">
+                        <div className="border rounded p-2">
+                          {form.data[0]?.phase_two?.actions_yhenon}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div className="grid grid-cols-1 text-center">
+                    <div className="bg-orange-500 font-semibold">PERIODE</div>
+                    <div className="mt-2">
+                      <div className="grid grid-cols-2 gap-1 w-full">
+                        <div className="border rounded p-2">
+                          <input
+                            name="periode_yhenon_date_debut"
+                            type="date"
+                            value={
+                              form.data?.[0]?.phase_two
+                                ?.periode_yhenon_date_debut || ""
+                            }
+                            onChange={(e) => handleChange(e, "phase_two")}
+                            className="w-full "
+                          />
+                        </div>
+
+                        <div className="border rounded p-2">
+                          <input
+                            name="periode_yhenon_date_fin"
+                            type="date"
+                            value={
+                              form.data?.[0]?.phase_two?.periode_yhenon_date_fin ||
+                              ""
+                            }
+                            onChange={(e) => handleChange(e, "phase_two")}
+                            className="w-full"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+
+                <div>
+                  <div className="grid grid-cols-1 text-center">
+                    <div className="bg-orange-500 font-semibold">BREVETAGE</div>
+                    <div className="mt-2">
+                    <input
+                      placeholder="Brevetage"
+                      name="brevetage"
+                      type="text"
+                      value={form.data?.[0]?.phase_two?.brevetage || ""}
+                      onChange={(e) => handleChange(e, "phase_two")}
+                      className="border p-2 mb-3 rounded w-full"
+                    />
+                  </div>
+                    
+                  </div>
+                </div>
+                
+                
+              </div>
+          </div>
+        )}
+         {/* ===== ETAPE 6 ===== */}
+         {step === 6 && (
+          <div className="animate-slide">
+            <h3 className="font-bold mb-4">Les phases</h3>
+            <div className="border p-3 rounded mb-3">
+              <h4 className="font-semibold uppercase ">
+                {form.data[0]?.phase_three?.nom}
+              </h4>
+
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
+                <div className="border rounded">
+                  <div className="grid grid-cols-1">
+                    <div className="bg-orange-500 font-semibold text-center">
+                      ETAPE
+                    </div>
+                    <div className="p-10 flex justify-center items-center">
+                      {form.data[0]?.phase_three?.etape_suyan}
+                    </div>
+                  </div>
+                </div>
+                <div className="border rounded">
+                  <div className="grid grid-cols-1 text-center">
+                    <div className="bg-orange-500 font-semibold">MOIS</div>
+                    <div className="p-2">
+                      <div className="grid grid-cols-1 text-center gap-1">
+                        <div className="border rounded p-2">
+                          {form.data[0]?.phase_three?.mois_one}
+                        </div>
+                        <div className="border rounded p-2">
+                          {form.data[0]?.phase_three?.mois_three}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="border rounded">
+                  <div className="grid grid-cols-1 text-center">
+                    <div className="bg-orange-500 font-semibold">ACTIONS</div>
+                    <div className="p-2">
+                      <div className="grid grid-cols-1 text-center gap-1">
+                        <div className="border rounded p-2">
+                          {form.data[0]?.phase_three?.actions_one}
+                        </div>
+                        <div className="border rounded p-2">
+                          {form.data[0]?.phase_three?.actions_three}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="border rounded">
+                  <div className="grid grid-cols-1 text-center">
+                    <div className="bg-orange-500 font-semibold">PERIODE</div>
+                    <div className="ml-2 mr-2 mt-2 mb-1">
+                      <div className="grid grid-cols-2 gap-1 w-full">
+                        <div className="border rounded p-2">
+                          <input
+                            name="periode_one_date_debut"
+                            type="date"
+                            value={
+                              form.data?.[0]?.phase_three
+                                ?.periode_one_date_debut || ""
+                            }
+                            onChange={(e) => handleChange(e, "phase_three")}
+                            className="w-full "
+                          />
+                        </div>
+
+                        <div className="border rounded p-2">
+                          <input
+                            name="periode_one_date_fin"
+                            type="date"
+                            value={
+                              form.data?.[0]?.phase_three?.periode_one_date_fin ||
+                              ""
+                            }
+                            onChange={(e) => handleChange(e, "phase_three")}
+                            className="w-full"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="ml-2 mr-2 mb-2">
+                      <div className="grid grid-cols-2 gap-1 w-full">
+                        <div className="border rounded p-2">
+                          <input
+                            name="periode_three_date_debut"
+                            type="date"
+                            value={
+                              form.data?.[0]?.phase_three
+                                ?.periode_three_date_debut || ""
+                            }
+                            onChange={(e) => handleChange(e, "phase_three")}
+                            className="w-full "
+                          />
+                        </div>
+
+                        <div className="border rounded p-2">
+                          <input
+                            name="periode_three_date_fin"
+                            type="date"
+                            value={
+                              form.data?.[0]?.phase_three
+                                ?.periode_three_date_fin || ""
+                            }
+                            onChange={(e) => handleChange(e, "phase_three")}
+                            className="w-full"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+              <div className="">
+                <div className="grid grid-cols-1">
+                  <div className="bg-orange-500 font-semibold text-center">
+                    DOMAINE
+                  </div>
+                  <div className="mt-2">
+                    <input
+                      placeholder="Domaine"
+                      name="domaine"
+                      type="text"
+                      value={form.data?.[0]?.phase_three?.domaine || ""}
+                      onChange={(e) => handleChange(e, "phase_three")}
+                      className="border p-2 mb-3 rounded w-full"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="rounded">
+                <div className="grid grid-cols-1 text-center">
+                  <div className="bg-orange-500 font-semibold">MISSION</div>
+                  <div className="mt-2">
+                    <input
+                      placeholder="Mission"
+                      name="mission"
+                      type="text"
+                      value={form.data?.[0]?.phase_three?.mission || ""}
+                      onChange={(e) => handleChange(e, "phase_three")}
+                      className="border p-2 mb-3 rounded w-full"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="">
+                <div className="grid grid-cols-1 text-center">
+                  <div className="bg-orange-500 font-semibold">
+                    CERTIFICATION
+                  </div>
+                  <div className="mt-2">
+                    <input
+                      placeholder="Certification"
+                      name="certification"
+                      type="text"
+                      value={form.data?.[0]?.phase_three?.certification || ""}
+                      onChange={(e) => handleChange(e, "phase_three")}
+                      className="border p-2 mb-3 rounded w-full"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-2">
+                <div>
+                  <div className="grid grid-cols-1">
+                    <div className="bg-orange-500 font-semibold text-center">
+                      ETAPE
+                    </div>
+                    <div className="p-2 mt-2 flex border rounded justify-center items-center">
+                      {form.data[0]?.phase_three?.etape_yhenon}
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div className="grid grid-cols-1 text-center">
+                    <div className="bg-orange-500 font-semibold">MOIS</div>
+                    <div className="mt-2">
+                      <div className="grid grid-cols-1 text-center gap-1">
+                        <div className="border rounded p-2">
+                          {form.data[0]?.phase_three?.mois_yhenon}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div className="grid grid-cols-1 text-center">
+                    <div className="bg-orange-500 font-semibold">ACTIONS</div>
+                    <div className="mt-2">
+                      <div className="grid grid-cols-1 text-center gap-1">
+                        <div className="border rounded p-2">
+                          {form.data[0]?.phase_three?.actions_yhenon}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div className="grid grid-cols-1 text-center">
+                    <div className="bg-orange-500 font-semibold">PERIODE</div>
+                    <div className="mt-2">
+                      <div className="grid grid-cols-2 gap-1 w-full">
+                        <div className="border rounded p-2">
+                          <input
+                            name="periode_yhenon_date_debut"
+                            type="date"
+                            value={
+                              form.data?.[0]?.phase_three
+                                ?.periode_yhenon_date_debut || ""
+                            }
+                            onChange={(e) => handleChange(e, "phase_three")}
+                            className="w-full "
+                          />
+                        </div>
+
+                        <div className="border rounded p-2">
+                          <input
+                            name="periode_yhenon_date_fin"
+                            type="date"
+                            value={
+                              form.data?.[0]?.phase_three?.periode_yhenon_date_fin ||
+                              ""
+                            }
+                            onChange={(e) => handleChange(e, "phase_three")}
+                            className="w-full"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+
+                <div>
+                  <div className="grid grid-cols-1 text-center">
+                    <div className="bg-orange-500 font-semibold">BREVETAGE</div>
+                    <div className="mt-2">
+                    <input
+                      placeholder="Brevetage"
+                      name="brevetage"
+                      type="text"
+                      value={form.data?.[0]?.phase_three?.brevetage || ""}
+                      onChange={(e) => handleChange(e, "phase_three")}
+                      className="border p-2 mb-3 rounded w-full"
+                    />
+                  </div>
+                    
+                  </div>
+                </div>
+                
+                
+              </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+                <div>
+                  <div className="grid grid-cols-1">
+                    <div className="bg-orange-500 font-semibold text-center">
+                      CÉRÉMONIE
+                    </div>
+                    <div className="p-2 mt-2 flex border rounded justify-center items-center">
+                      {form.data[0]?.phase_three?.ceremonie}
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div className="grid grid-cols-1 text-center">
+                    <div className="bg-orange-500 font-semibold">DATE</div>
+                    <div className="mt-2">
+                    <input
+                      placeholder="Date"
+                      name="date_ceremonie"
+                      type="date"
+                      value={form.data?.[0]?.phase_three?.date_ceremonie || ""}
+                      onChange={(e) => handleChange(e, "phase_three")}
+                      className="border p-2 mb-3 rounded w-full"
+                    />
+                  </div>
+                    
+                  </div>
+                </div>
+
+                <div>
+                  <div className="grid grid-cols-1 text-center">
+                    <div className="bg-orange-500 font-semibold">LIEU</div>
+                    <div className="mt-2">
+                    <input
+                      placeholder="Lieu"
+                      name="lieu_ceremonie"
+                      type="text"
+                      value={form.data?.[0]?.phase_three?.lieu_ceremonie || ""}
+                      onChange={(e) => handleChange(e, "phase_three")}
+                      className="border p-2 mb-3 rounded w-full"
+                    />
+                  </div>
+                    
+                  </div>
+                </div>
+              </div>
+          </div>
+        )}
 
             {/* ===== BOUTONS ===== */}
             <div className="flex justify-between mt-6">
@@ -711,7 +1724,7 @@ export const UpdateCheminot = () => {
                 </button>
               )}
 
-              {step < 4 && (
+              {step < 6 && (
                 <button
                   type="button"
                   onClick={nextStep}
@@ -721,7 +1734,7 @@ export const UpdateCheminot = () => {
                 </button>
               )}
 
-              {step === 4 && (
+              {step === 6 && (
                 <button
                   type="submit"
                   className="bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700 ml-auto cursor-pointer"

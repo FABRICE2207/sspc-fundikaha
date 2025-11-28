@@ -3,7 +3,7 @@ import { api } from "../../api/axios";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { FaEye } from "react-icons/fa";
-import { Sidebar } from "./Sidebar";
+import { Barside } from "./Barside";
 
 export const ListeCheminots = () => {
   const [open, setOpen] = useState(false);
@@ -19,7 +19,7 @@ export const ListeCheminots = () => {
   const fetchcheminots = async () => {
     try {
       const response = await api.get("/cheminots/get_all_cheminots");
-      console.log("Liste des cheminots", response.data);
+      // console.log("Liste des cheminots", response.data);
 
       setChemiots(response.data);
       setLoading(false);
@@ -32,7 +32,7 @@ export const ListeCheminots = () => {
   return (
     <div className="min-h-screen flex bg-gray-100">
       {/* Sidebar */}
-      <Sidebar />
+      <Barside />
 
       {/* Main Content */}
       <div className="flex-1 md:ml-64 p-4">

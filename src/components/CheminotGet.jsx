@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import {api} from "../../api/axios";
-import { Sidebar } from "./Sidebar";
+import { Barside } from "./Barside";
 
 export const CheminotGet = () => {
   const { id } = useParams();
@@ -44,7 +44,7 @@ export const CheminotGet = () => {
   return (
     <div className="min-h-screen flex bg-gray-100">
           {/* Sidebar */}
-          <Sidebar />
+          <Barside />
     
           {/* Main Content */}
           <div className="flex-1 md:ml-64 p-4">

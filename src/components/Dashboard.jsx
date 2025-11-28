@@ -1,25 +1,86 @@
 import React, { useState, useEffect } from "react";
 
-import {apiToken} from "../../api/axios";
-import axios from "axios";
+import {api} from "../../api/axios";
 import { useNavigate } from "react-router-dom";
-import { Sidebar } from "./Sidebar";
+import { Barside } from "./Barside";
 
 export const Dashboard = () => {
-  const [open, setOpen] = useState(false);
+  const [selectedParoisse, setSelectedParoisse] = useState("TOUS");
+  // Récupération du rôle depuis localStorage
+  const role = localStorage.getItem("role");
 
-   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
 
-  const [role, setRole] = useState("");
-  const navigate = useNavigate();
+    const [stats, setStats] = useState({
+    total_users: 0,
+    total_cheminots: 0,
+    total_paroisses: 0,
+    djoni: 0,
+    tamani: 0,
+    suyan: 0
+  });
+
+ useEffect(() => {
+    const fetchStats = async () => {
+      try {
+        const url =
+          selectedParoisse === "TOUS"
+            ? "/cheminots/stats"
+            : `/cheminots/stats/cheminots?paroisse=${selectedParoisse}`;
+
+        const response = await api.get(url);
+
+        const general = response.data.general[0] || {};
+        const paroisses = response.data.par_paroisse || [];
+
+        let statsParoisse = {};
+
+        if (selectedParoisse !== "TOUS") {
+          statsParoisse =
+            paroisses.find((p) => p._id === selectedParoisse) || {};
+        }
+
+        setStats({
+          total_users: 0,
+
+          total_cheminots:
+            selectedParoisse === "TOUS"
+              ? general.total || 0
+              : statsParoisse.total || 0,
+
+          total_paroisses:
+            selectedParoisse === "TOUS"
+              ? paroisses.length
+              : 1,
+
+          djoni:
+            selectedParoisse === "TOUS"
+              ? general.djoni || 0
+              : statsParoisse.djoni || 0,
+
+          tamani:
+            selectedParoisse === "TOUS"
+              ? general.tamani || 0
+              : statsParoisse.tamani || 0,
+
+          suyan:
+            selectedParoisse === "TOUS"
+              ? general.suyan || 0
+              : statsParoisse.suyan || 0,
+        });
+
+      } catch (error) {
+        console.error("Erreur stats :", error);
+      }
+    };
+
+    fetchStats();
+  }, [selectedParoisse]);
 
   
   return (
     <div className="">
       {/* Sidebar */}
-      <Sidebar />
+      <Barside />
 
 
       {/* Main Content */}
@@ -29,47 +90,58 @@ export const Dashboard = () => {
           <h1 className="text-2xl font-bold text-gray-800">Tableau de bord</h1>
         </div>
 
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-          <StatCard title="Utilisateurs" value="10" />
-          <StatCard title="Cheminots" value="450" />
-          <StatCard title="Paroisses" value="6" />
-        </div>
 
-        {/* Section content */}
-        <div className="bg-white p-6 rounded-lg shadow">
-          <h2 className="text-xl font-bold mb-4">Dernières inscriptions</h2>
 
-          <table className="w-full border">
-            <thead>
-              <tr className="bg-gray-200">
-                <th className="p-2 text-left">Nom</th>
-                <th className="p-2 text-left">Paroisse</th>
-                <th className="p-2 text-left">Génération</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="p-2">ADOU Fabrice</td>
-                <td className="p-2">St Pierre</td>
-                <td className="p-2">2022</td>
-              </tr>
-              <tr className="bg-gray-50">
-                <td className="p-2">KOUASSI Jean</td>
-                <td className="p-2">Ste Marie</td>
-                <td className="p-2">2023</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+      {/* Cards (uniquement si admin) */}
+        {role === "admin" && (
+          <>
+
+          {/* Paroisse select */}
+      <div className="mb-4">
+        <label className="block mb-1 font-semibold">Paroisse</label>
+        <select
+          value={selectedParoisse}
+          onChange={(e) => setSelectedParoisse(e.target.value)}
+          className="w-full border p-2 rounded focus:outline-none focus:ring focus:ring-blue-300"
+        >
+          <option value="TOUS">Toutes les paroisses</option>
+          <option value="STA">Saint Andreas Kaggwa</option>
+          <option value="SB">Saint Barthélémy</option>
+          <option value="SE">Sainte Elisabeth</option>
+          <option value="SFA">Saint François d’Assise</option>
+          <option value="SJM">Saint Jacques le Majeur</option>
+          <option value="SJB">Saint Jean-Baptiste</option>
+          <option value="STJA">Sainte Thérèse</option>
+          <option value="NDA">Notre Dame d'Assomption</option>
+        </select>
+      </div>
+
+            {/* Cards générales */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+              <StatCard title="Utilisateurs" value={stats.total_users} />
+              <StatCard title="Cheminots" value={stats.total_cheminots} />
+              <StatCard title="Paroisses" value={stats.total_paroisses} />
+            </div>
+
+            {/* Cards étapes */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+              <StatCard title="DJONI" value={stats.djoni} />
+              <StatCard title="TAMANI" value={stats.tamani} />
+              <StatCard title="SUYAN" value={stats.suyan} />
+            </div>
+          </>
+        )}
+
       </div>
     </div>
   );
 };
 
-const StatCard = ({ title, value }) => (
-  <div className="bg-white shadow rounded-lg p-5">
-    <h3 className="text-gray-500">{title}</h3>
-    <p className="text-3xl font-bold text-orange-500 mt-2">{value}</p>
-  </div>
-);
+const StatCard = ({ title, value }) => {
+  return (
+    <div className="bg-white p-5 rounded-lg shadow">
+      <h4 className="text-gray-500">{title}</h4>
+      <p className="text-2xl font-bold mt-2">{value}</p>
+    </div>
+  );
+};

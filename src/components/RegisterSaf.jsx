@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { api } from "../../api/axios";
 import { useNavigate } from "react-router-dom";
-import { Sidebar } from "./Sidebar";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { Barside } from "./Barside";
 
 export const RegisterSaf = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -55,7 +55,7 @@ export const RegisterSaf = () => {
   return (
     <div className="min-h-screen flex bg-gray-100">
       {/* Sidebar */}
-      <Sidebar />
+      <Barside />
 
       {/* Main Content */}
       <div className="flex-1 md:ml-64 p-4">

@@ -16,7 +16,7 @@ const MenuItem = ({ icon, label, to, onClick }) => (
   </Link>
 );
 
-export const Sidebar = () => {
+export const Barside = () => {
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState("");
 

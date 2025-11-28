@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Sidebar } from "./Sidebar";
 import { api, apiToken } from "../../api/axios";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { FaTrash} from "react-icons/fa";
 import { GrUpdate } from "react-icons/gr";
+import { Barside } from "./Barside";
 
 export const ListeCheminotSaf = () => {
   const [open, setOpen] = useState(false);
@@ -72,7 +72,7 @@ export const ListeCheminotSaf = () => {
   return (
     <div className="min-h-screen flex bg-gray-100 stiky">
       {/* Sidebar */}
-      <Sidebar />
+      <Barside />
 
       {/* Main Content */}
       <div className="flex-1 md:ml-64 p-4">

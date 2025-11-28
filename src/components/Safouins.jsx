@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Home, Users, BarChart2, Settings, LogOut, Menu } from "lucide-react";
 import { Link } from "react-router-dom";
 import { api } from "../../api/axios";
-import { Sidebar } from "./Sidebar";
+import { Barside } from "./Barside";
 
 
 const MenuItem = ({ icon, label, to }) => (
@@ -38,7 +38,7 @@ export const Safouins = () => {
   return (
     <div className="min-h-screen flex bg-gray-100">
       {/* Sidebar */}
-      <Sidebar />
+      <Barside />
 
       {/* Main Content */}
       <div className="flex-1 md:ml-64 p-4">

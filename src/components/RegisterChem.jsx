@@ -1,10 +1,10 @@
 
 import React, { useState } from "react";
 import axios from "axios";
-import { Sidebar } from "./Sidebar";
 import {api} from "../../api/axios";
 import { useNavigate } from "react-router-dom";
 import AddCheminot from "./AddCheminot";
+import { Barside } from "./Barside";
 
 export const RegisterChem = () => {
   const [formData, setFormData] = useState({
@@ -58,7 +58,7 @@ export const RegisterChem = () => {
    return (
       <div className="min-h-screen flex bg-gray-100">
         {/* Sidebar */}
-        <Sidebar />
+        <Barside />
   
         {/* Main Content */}
         <div className="flex-1 md:ml-64 p-4">

@@ -3,6 +3,7 @@ import { api } from "../../api/axios";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { FaEye } from "react-icons/fa";
+import { Sidebar } from "./Sidebar";
 
 export const ListeCheminots = () => {
   const [open, setOpen] = useState(false);

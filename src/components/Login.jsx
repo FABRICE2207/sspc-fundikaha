@@ -1,12 +1,13 @@
-import React, {useEffect} from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import loginImage from "../assets/login-image.jpg"; // remplace par ton image
 import logoImage from "../assets/logo.png";
 import { useNavigate } from "react-router-dom";
-import {api, apiToken } from "../../api/axios";
-import { jwtDecode } from "jwt-decode";
+import { api, apiToken } from "../../api/axios";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 // Définir le schéma Zod
 const loginSchema = z.object({
@@ -15,6 +16,7 @@ const loginSchema = z.object({
 });
 
 export const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const {
     register,
     handleSubmit,
@@ -24,76 +26,93 @@ export const Login = () => {
   });
   const navigate = useNavigate();
 
-  // const onSubmit = async (data) => {    
+  // const onSubmit = async (data) => {
   //   try {
-  //   const response = await api.post("/auth/login", data, {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   });
+  //     // 1. Login
+  //     const response = await api.post("/auth/login", data, {
+  //       headers: { "Content-Type": "application/json" },
+  //     });
 
-  //   console.log("API Response:", response.data);
+  //     console.log("API Response:", response.data);
 
-  //   // Exemple : stocker le token dans localStorage
-  //   if (response.data.token) {
-  //       const token = response.data.token;
-  //       const decoded = jwtDecode(token);
+  //     // 2. Stocker le token
+  //     if (response.data.access_token) {
+  //       localStorage.setItem("token", response.data.access_token);
+  //     } else {
+  //       console.error("Aucun token reçu !");
+  //       return;
+  //     }
 
-  //       console.log("Token décodé:", decoded);
+  //     // 3. Appel pour récupérer l'utilisateur connecté
+  //     const userResponse = await apiToken.get("/auth/me");
 
-  //       localStorage.setItem("token", token);
-  //       localStorage.setItem("role", decoded.role); // Récupéré dans le token
+  //     // console.log("Infos utilisateur :", userResponse.data);
 
+  //     // 4. Stocker le rôle
+  //     localStorage.setItem("role", userResponse.data.role);
+
+  //     // 5. Redirection selon le rôle
+  //     if (userResponse.data.role) {
+  //       navigate("/dashboard");
+  //     }
+  //   } catch (error) {
+  //     if (error.response) {
+  //       console.error("Erreur login:", error.response.data);
+  //     } else {
+  //       console.error("Erreur login:", error.message);
+  //     }
   //   }
-
-  //   // Redirection après login
-  //   navigate("/dashboard");
-  // } catch (error) {
-  //   if (error.response) {
-  //     // Erreur renvoyée par le serveur
-  //     console.error("Erreur login:", error.response.data);
-  //   } else {
-  //     console.error("Erreur login:", error.message);
-  //   }
-  // }
   // };
 
-  const onSubmit = async (data) => {    
+
+const onSubmit = async (data) => {
   try {
     // 1. Login
     const response = await api.post("/auth/login", data, {
       headers: { "Content-Type": "application/json" },
     });
 
-    console.log("API Response:", response.data);
+    // console.log("API Response:", response.data);
 
     // 2. Stocker le token
     if (response.data.access_token) {
       localStorage.setItem("token", response.data.access_token);
     } else {
-      console.error("Aucun token reçu !");
+      Swal.fire({
+        icon: "error",
+        title: "Erreur",
+        text: "Aucun token reçu du serveur !",
+      });
       return;
     }
 
-    // 3. Appel pour récupérer l'utilisateur connecté
+    // 3. Récupérer l'utilisateur connecté
     const userResponse = await apiToken.get("/auth/me");
-
-    // console.log("Infos utilisateur :", userResponse.data);
 
     // 4. Stocker le rôle
     localStorage.setItem("role", userResponse.data.role);
 
-    // 5. Redirection selon le rôle
+    // 5. Redirection
     if (userResponse.data.role) {
       navigate("/dashboard");
-    } 
+    }
 
   } catch (error) {
+    let message = "Une erreur est survenue, veuillez réessayer.";
+
     if (error.response) {
-      console.error("Erreur login:", error.response.data);
+      // console.error("Erreur login:", error.response.data);
+      message = error.response.data.detail || "Email ou mot de passe incorrect.";
     } else {
       console.error("Erreur login:", error.message);
     }
+
+    Swal.fire({
+      icon: "error",
+      title: "Échec de connexion",
+      text: message,
+      confirmButtonText: "OK",
+    });
   }
 };
 
@@ -112,7 +131,7 @@ export const Login = () => {
         {/* Overlay noir semi-transparent */}
         <div className="absolute inset-0 bg-[rgba(0,0,0,0.61)] bg-opacity-50  text-white flex flex-col items-center justify-center">
           <h2 className=" text-7xl font-bold text-center px-4">
-            Système de Suivi des Progressions des Cheminots du village Fundikaha 
+            Système de Suivi des Progressions des Cheminots du village Fundikaha
           </h2>
           <p className="text-xl">(District les Comanches)</p>
         </div>
@@ -124,7 +143,9 @@ export const Login = () => {
           <div className="flex justify-center items-center h-full">
             <img src={logoImage} alt="Logo" className="w-36" />
           </div>
-          <h2 className="text-4xl font-bold mb-2 text-center text-gray-800">Connexion</h2>
+          <h2 className="text-4xl font-bold mb-2 text-center text-gray-800">
+            Connexion
+          </h2>
           <form onSubmit={handleSubmit(onSubmit)} className="px-8 py-10">
             {/* Email */}
             <div className="mb-4">
@@ -151,14 +172,30 @@ export const Login = () => {
               <label className="block text-gray-700 text-sm font-semibold mb-2">
                 Mot de passe
               </label>
-              <input
-                type="password"
-                placeholder="Mot de passe"
-                {...register("password")}
-                className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                  errors.password ? "border-red-500" : ""
-                }`}
-              />
+
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Mot de passe"
+                  {...register("password")}
+                  className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 pr-10 ${
+                    errors.password ? "border-red-500" : ""
+                  }`}
+                />
+
+                {/* Icône œil */}
+                <div
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? (
+                    <FaEyeSlash size={18} />
+                  ) : (
+                    <FaEye size={18} />
+                  )}
+                </div>
+              </div>
+
               {errors.password && (
                 <p className="text-red-500 text-sm mt-1">
                   {errors.password.message}
@@ -168,7 +205,7 @@ export const Login = () => {
 
             <button
               type="submit"
-              className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-md"
+              className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-md cursor-pointer"
             >
               Se connecter
             </button>

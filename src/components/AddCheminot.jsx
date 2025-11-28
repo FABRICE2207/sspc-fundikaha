@@ -366,11 +366,11 @@ export default function AddCheminot() {
               >
                 <option>Sélectionner une paroisse</option>
                 <option value="STA">
-                  Saint andreas kaggwa de yopougon andokoi
+                  Saint Andreas Kaggwa de Yopougon Andokoi
                 </option>
-                <option value="SB">Saint bathémemy de la cité du banco</option>
+                <option value="SB">Saint Bathémemy de la Cité du Banco</option>
                 <option value="SE">
-                  Sainte elisabeth de yopougon ananeraie
+                  Sainte Elisabeth de Yopougon Ananeraie
                 </option>
                 <option value="SFA">
                   Saint François d’Assise de Yopougon Zone Industrielle.
@@ -383,6 +383,9 @@ export default function AddCheminot() {
                 </option>
                 <option value="STJA">
                   Sainte Thérèse de Jésus d’Avila (cité ppa ex maca)
+                </option>
+                <option value="NDA">
+                  Notre Dame d'Assomption de Yopougon Gesco
                 </option>
               </select>
 

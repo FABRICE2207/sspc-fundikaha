@@ -4,6 +4,7 @@ import { api, apiToken } from "../../api/axios";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { Barside } from "./Barside";
+import Swal from "sweetalert2";
 
 export const UpdateCheminot = () => {
   const navigate = useNavigate();
@@ -464,12 +465,14 @@ export const UpdateCheminot = () => {
             mois: form.data[0].etape_one.mois,
             date_debut: form.data[0].etape_one.date_debut,
             date_fin: form.data[0].etape_one.date_fin,
+            statut: statut,
           },
           etape_two: {
             nom: form.data[0].etape_two.nom,
             mois: form.data[0].etape_two.mois,
             date_debut: form.data[0].etape_two.date_debut,
             date_fin: form.data[0].etape_two.date_fin,
+            statut: statutTamani,
             ceremonie_two: {
               nom_two: form.data[0].etape_two.ceremonie_two.nom_two,
               Date_two: form.data[0].etape_two.ceremonie_two.Date_two,
@@ -570,23 +573,33 @@ export const UpdateCheminot = () => {
 
     try {
       await apiToken.put(`/cheminots/update_cheminot/${id}`, payload);
-      alert("Cheminot mis à jour avec succès !");
+       await Swal.fire({
+    icon: "success",
+    title: "Succès",
+    text: "Cheminot mis à jour avec succès !",
+    confirmButtonColor: "#16a34a",
+  });
       navigate("/liste_cheminots_saf");
     } catch (error) {
-      console.error("Erreur lors de la mise à jour :", error);
-      alert("Erreur pendant la mise à jour");
+      // console.error("Erreur lors de la mise à jour :", error);
+      Swal.fire({
+        icon: "error",
+        title: "Erreur",
+        text: "Erreur pendant la mise à jour",
+        confirmButtonColor: "#dc2626",
+      });
     }
   };
 
   // if (!cheminot) return <p>Chargement...</p>;
 
   return (
-    <div className="min-h-screen flex bg-gray-100">
-      {/* Sidebar */}
-      <Barside />
+    <div className="flex h-screen">
+  {/* Sidebar */}
+  <Barside />
 
-      {/* Main Content */}
-      <div className="flex-1 md:ml-64 p-4">
+  {/* Main Content */}
+  <div className="flex-1 p-4 bg-gray-100 overflow-auto">
         {/* Header */}
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold text-gray-800">Tableau de bord</h1>

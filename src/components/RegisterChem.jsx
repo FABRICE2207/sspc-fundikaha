@@ -56,12 +56,12 @@ export const RegisterChem = () => {
   };
 
    return (
-      <div className="min-h-screen flex bg-gray-100">
-        {/* Sidebar */}
-        <Barside />
-  
-        {/* Main Content */}
-        <div className="flex-1 md:ml-64 p-4">
+      <div className="flex h-screen">
+  {/* Sidebar */}
+  <Barside />
+
+  {/* Main Content */}
+  <div className="flex-1 p-4 bg-gray-100 overflow-auto">
           {/* Header */}
           <div className="flex justify-center md:justify-between items-center mb-6">
   <h1 className="text-2xl font-bold text-gray-800 text-center md:text-left">

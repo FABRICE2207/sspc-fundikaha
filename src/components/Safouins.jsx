@@ -41,7 +41,7 @@ export const Safouins = () => {
       <Barside />
 
       {/* Main Content */}
-      <div className="flex-1 md:ml-64 p-4">
+      <div className="flex-1 p-4">
         {/* Header */}
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold text-gray-800">Tableau de bord</h1>

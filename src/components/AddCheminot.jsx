@@ -3,6 +3,7 @@ import axios from "axios";
 import { api, apiToken } from "../../api/axios";
 import { useNavigate } from "react-router-dom";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 export default function AddCheminot() {
   // Récupérer les infos de l'utilisateur connecté avec le token
@@ -372,14 +373,29 @@ export default function AddCheminot() {
     };
 
     try {
-      const response = await apiToken.post("/cheminots/add_cheminot", payload);
-      console.log("Cheminot ajouté :", response.data);
-      alert("✅ Cheminot ajouté avec succès !");
-      navigate("/liste_cheminots_saf");
-    } catch (err) {
-      console.error("Erreur lors de l'ajout :", err);
-      alert("❌ Erreur lors de l'ajout");
-    }
+  const response = await apiToken.post("/cheminots/add_cheminot", payload);
+
+  console.log("Cheminot ajouté :", response.data);
+
+  await Swal.fire({
+    icon: "success",
+    title: "Succès",
+    text: "Cheminot ajouté avec succès !",
+    confirmButtonColor: "#16a34a",
+  });
+
+  navigate("/liste_cheminots_saf");
+
+} catch (err) {
+  console.error("Erreur lors de l'ajout :", err);
+
+  Swal.fire({
+    icon: "error",
+    title: "Erreur",
+    text: "Erreur lors de l'ajout du cheminot",
+    confirmButtonColor: "#dc2626",
+  });
+}
   };
 
   return (

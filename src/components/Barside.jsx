@@ -39,68 +39,79 @@ export const Barside = () => {
 
   const role = user.role;
 
-  return (
-  <div className="fixed">
-    {/* Bouton hamburger (mobile) */}
-<div className="md:hidden fixed top-4 left-4 z-30 flex items-center gap-2">
-  {!open ? (
+return (
+  <div>
+    {/* Bouton hamburger visible uniquement sur mobile */}
     <button
-      onClick={() => setOpen(true)}
-      className="bg-gray-900 text-white p-2 rounded"
+      className="md:hidden fixed top-4 left-4 z-30 bg-gray-900 text-white p-2 rounded-lg shadow"
+      onClick={() => setOpen(!open)}
     >
-      <Menu size={24} />
+      {open ? <X size={24} /> : <Menu size={24} />}
     </button>
-  ) : (
-    <button
-      onClick={() => setOpen(false)}
-      className="bg-gray-900 text-white p-2 rounded"
-    >
-      <X size={24} />
-    </button>
-  )}
-</div>
 
+    {/* Overlay sombre (mobile) */}
+    {open && (
+      <div
+        className="fixed inset-0 bg-black/50 z-20 md:hidden"
+        onClick={() => setOpen(false)}
+      />
+    )}
 
-    {/* Overlay noir quand menu ouvert */} {open && ( <div className="fixed inset-0 bg-[#00000047] bg-opacity-50 z-10 md:hidden" onClick={() => setOpen(false)} /> )}
-
-    {/* Sidebar */}
+    {/* SIDEBAR */}
     <aside
       className={`
-        fixed md:relative top-0 left-0 z-20 bg-gray-900 text-white w-64 min-h-screen p-5
-        transform ${open ? "translate-x-0" : "-translate-x-full"}
-        md:translate-x-0 transition-transform duration-300
-        flex flex-col justify-between
+        fixed md:static top-0 left-0 z-30
+        w-64 h-screen bg-gray-900 text-white p-5 flex flex-col justify-between
+        transform transition-transform duration-300 ease-in-out
+        ${open ? "translate-x-0" : "-translate-x-full"}
+        md:translate-x-0
       `}
     >
-      {/* Contenu menu */}
+      {/* Logo */}
       <div>
-        {/* Logo */}
-        <div className="flex justify-center items-center w-full mb-4 md:mb-6">
-          <img src={logoImage} alt="Logo" className="object-cover w-28" />
+        <div className="flex justify-center mb-6">
+          <img src={logoImage} alt="Logo" className="w-28 object-cover" />
         </div>
 
+        {/* Menu */}
         <nav className="space-y-4">
           <MenuItem icon={<Home size={20} />} label="Accueil" to="/dashboard" />
 
           {role === "admin" && (
-            <MenuItem icon={<Users size={20} />} label="Safouins" to="/liste_safouins" />
+            <MenuItem
+              icon={<Users size={20} />}
+              label="Safouins"
+              to="/liste_safouins"
+            />
           )}
 
           {role === "user" && (
-            <MenuItem icon={<Users size={20} />} label="Cheminots" to="/liste_cheminots_saf" />
+            <MenuItem
+              icon={<Users size={20} />}
+              label="Cheminots"
+              to="/liste_cheminots_saf"
+            />
           )}
 
           {role === "admin" && (
             <>
-              <MenuItem icon={<Users size={20} />} label="Cheminots" to="/liste_cheminots" />
-              <MenuItem icon={<Users size={20} />} label="Gestion Paroisses" to="/paroisses" />
+              <MenuItem
+                icon={<Users size={20} />}
+                label="Cheminots"
+                to="/liste_cheminots"
+              />
+              <MenuItem
+                icon={<Users size={20} />}
+                label="Gestion Paroisses"
+                to="/paroisses"
+              />
             </>
           )}
         </nav>
       </div>
 
-      {/* Déconnexion en bas */}
-      <div className="mt-4 md:mt-0">
+      {/* Déconnexion */}
+      <div className="pt-4 border-t border-gray-700">
         <MenuItem
           icon={<LogOut size={20} />}
           label="Déconnexion"
@@ -111,5 +122,6 @@ export const Barside = () => {
     </aside>
   </div>
 );
+
 
 };

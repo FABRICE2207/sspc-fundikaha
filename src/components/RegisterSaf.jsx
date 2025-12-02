@@ -58,7 +58,7 @@ export const RegisterSaf = () => {
       <Barside />
 
       {/* Main Content */}
-      <div className="flex-1 md:ml-64 p-4">
+      <div className="flex-1 p-4">
         {/* Header */}
         <div className="flex justify-center md:justify-between items-center mb-6">
           <h1 className="text-2xl font-bold text-gray-800 text-center md:text-left">
